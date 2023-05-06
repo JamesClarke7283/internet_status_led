@@ -1,0 +1,13 @@
+[Unit]
+Description=Internet Status LED
+After=network.target
+
+[Service]
+User=lbw
+WorkingDirectory=/opt/internet_status_led
+ExecStart=/usr/bin/python3 main.py
+Restart=always
+Environment=BLINKA_MCP2221=1
+
+[Install]
+WantedBy=multi-user.target
