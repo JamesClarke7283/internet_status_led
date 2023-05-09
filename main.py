@@ -1,8 +1,8 @@
 from utils import check_internet
-import board
-import digitalio
 import time
 import os
+import board
+import digitalio
 
 if os.environ["BLINKA_MCP2221"] == "1":
     print("Using MCP2221")
@@ -20,4 +20,4 @@ while True:
     else:
         print("Internet is down!")
         led.value = False
-    time.sleep(5)
+    time.sleep(2)

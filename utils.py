@@ -13,12 +13,11 @@ def ping_host(host="8.8.8.8", count=1, timeout=1000):
             # Linux and macOS ping command
             command = ["ping", "-c", str(count), "-W", str(timeout), host]
 
-        result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=timeout / 1000)
 
         # Return True if the returncode is 0 (success), False otherwise
         return result.returncode == 0
     except Exception as ex:
-        print(ex)
         return False
 
 
